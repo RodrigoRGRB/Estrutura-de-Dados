@@ -4,25 +4,35 @@
 # Ou delegar a solução para uma função puramente recursiva
 import unittest
 
-def min_max(lista, maximo, minimo, x):
-    maximo = m
-    minimo = n
-    if(x <= len(lista)):
-        return m , n
-        if (maximo < lista[x]):
-            maximo = lista[x]
-        if (minimo > lista[x]):
-            minimo = lista[x]
-        return maximo_minimo(lista, m, n, x + 1)
+def max_min_recursivo(seq, cursor, max, min):
+    if cursor == len(seq):
+        return min,max
+    elemento_atual = seq[cursor]
+    if elemento_atual > max:
+        max = elemento_atual
+    if elemento_atual < min:
+        min = elemento_atual
 
-def min_max(lista):
-    '''O programa possui uma função recursiva que retorna o maior e menor numero
-da lista. O algoritimo é O(n) pois percorre a lista sem ordená-la
-retornando o resultado'''
-    if len(lista) == 1:
-        return lista[0], lista[0]
-    else:
-        return min_max(lista, lista[0], lista[0], 1)
+    return max_min_recursivo(seq, cursor + 1, max, min)
+
+def min_max(seq):
+    '''
+    :param seq: uma sequencia
+    :return: (min, max)
+
+    Retorna tupla cujo primeiro valor mínimo (min) é o valor
+    mínimo da sequencia seq.
+    O segundo é o valor máximo (max) da sequencia
+    '''
+    if seq:
+        return max_min_recursivo(seq,1,seq[0],seq[0])
+
+    return None, None
+
+'''
+O codigo roda em O(n) pois percorre uma lista de valores, nessa lista ele retorna um indice que ira percorrer
+a lista.
+'''
 
 class MinMaxTestes(unittest.TestCase):
     def test_lista_vazia(self):
@@ -37,3 +47,4 @@ class MinMaxTestes(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
