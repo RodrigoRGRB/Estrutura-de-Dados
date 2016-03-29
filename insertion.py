@@ -3,7 +3,7 @@ import unittest
 def insertion_sort(seq):
     '''
         mem O(1) pois só terá a sequencia e as variaveis
-    Tempo de execução O(n²) pois possui um while dentro de outro while para percorrer a lista e realizar a ordenação
+        Tempo de execução O(n²) existe um while que percorre a sequencia e outro while para inserção do valor para ordenar a sequencia
    '''
     if len(seq) <= 1:
         return seq
