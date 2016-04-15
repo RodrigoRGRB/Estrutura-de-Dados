@@ -1,5 +1,5 @@
 '''
-O(log n) - Percorrendo While
+O(n) - Percorrendo While
 O(1) - Grava apenas a sequencia e algumas variaveis
 '''
 
