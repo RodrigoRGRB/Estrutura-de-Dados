@@ -1,3 +1,5 @@
+# o(1) para memoria
+# o(n) pois depende do tamanho da arvore
 class Noh:
     def __init__(self, valor , pai = None):
         self.valor = valor
